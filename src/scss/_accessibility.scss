@@ -1,0 +1,28 @@
+/* Text meant only for screen readers. */
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: $color-base-bg-alt;
+	border-radius: 3px;
+	clip: auto !important;
+	color: $color-base-link;
+	display: block;
+	font-size: $font-size-medium;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: $space-1 $space-2;
+	text-decoration: none;
+	top: $space-0;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}

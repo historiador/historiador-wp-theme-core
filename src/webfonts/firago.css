@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-weight: 400;
+  src: local('FiraGO Regular'), local('FiraGO-Regular'),
+       url('../historiador/assets/fonts/firago/FiraGO-Regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../historiador/assets/fonts/firago/FiraGO-Regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'FiraGO';
+  font-style: italic;
+  font-weight: 400;
+  src: local('FiraGO Italic'), local('FiraGO-Italic'),
+       url('../historiador/assets/fonts/firago/FiraGO-Italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../historiador/assets/fonts/firago/FiraGO-Italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-weight: 700;
+  src: local('FiraGO Bold'), local('FiraGO-Bold'),
+       url('../historiador/assets/fonts/firago/FiraGO-Bold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../historiador/assets/fonts/firago/FiraGO-Bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'FiraGO';
+  font-style: italic;
+  font-weight: 700;
+  src: local('FiraGO Bold Italic'), local('FiraGO-BoldItalic'),
+       url('../historiador/assets/fonts/firago/FiraGO-BoldItalic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../historiador/assets/fonts/firago/FiraGO-BoldItalic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Hack alt';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Hack Regular'), local('Hack-Regular'),
+       url('../historiador/assets/fonts/hack/Hack-Regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../historiador/assets/fonts/hack/Hack-Regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+

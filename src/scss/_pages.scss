@@ -1,0 +1,56 @@
+.page-header {
+	padding-bottom: $vertical-rhythm-0;
+}
+
+.page .entry-header .edit-link {
+    @include fluid-font-size($font-size-small);
+}
+
+.search .page .entry-header .edit-link {
+    @include fluid-font-size($font-size-xsmall);
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 $vertical-rhythm-0;
+}
+
+.page:not(.home) #content {
+	padding-bottom: $vertical-rhythm-0;
+}
+
+.entry-header-single-column,
+.entry-content-single-column { // Page template to display everything in a single column
+	@include tablet {
+		padding: 0 $space-1;
+	}
+
+	@include desktop {
+		padding: 0 $space-2;
+	}
+
+	display: block;
+	width: 100%;
+	max-width: $viewport-measure-small;
+	padding: 0 $space-0;
+	margin: 0 auto;
+
+	.has-sidebar & {
+		@include tablet {
+			padding-left: 0;
+		}
+	}
+}
+
+/* 404 page */
+
+// TODO test this
+.error404 .page-content {
+	padding-bottom: $vertical-rhythm-2;
+}
+
+// TODO test this
+.error404 .page-content .search-form,
+.search .page-content .search-form {
+	margin-bottom: $vertical-rhythm-1;
+}

@@ -1,0 +1,192 @@
+body,
+button,
+input,
+select,
+textarea {
+    @include fluid-font-size($font-size-medium);
+
+	color: $color-base-fg;
+	font-family: $font-family-body;
+	font-weight: 400;
+	line-height: $line-height-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+    font-family: $font-family-heading;
+	line-height: $line-height-heading;
+}
+
+h1 {
+    @include fluid-font-size($font-size-xxxlarge);
+
+    font-weight: 700;
+}
+
+h2 {
+    @include fluid-font-size($font-size-xxlarge);
+
+    font-weight: 700;
+}
+
+h3 {
+    @include fluid-font-size($font-size-xlarge);
+
+    font-weight: 400;
+}
+
+h4 {
+    @include fluid-font-size($font-size-large);
+
+    font-weight: 400;
+    font-style: italic;
+}
+
+h5 {
+    @include fluid-font-size($font-size-medium);
+
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+h6 {
+    @include fluid-font-size($font-size-small);
+
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+p {
+	margin: 0 0 $vertical-rhythm-1;
+	padding: 0;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	@include desktop {
+		padding: 0 0 0 $vertical-rhythm-3;
+	}
+
+	font-style: italic;
+	margin: 0;
+	overflow: hidden;
+	padding: 0 0 0 $vertical-rhythm-2;
+}
+
+blockquote cite {
+	display: block;
+	font-style: normal;
+	margin-top: $vertical-rhythm-0;
+}
+
+.entry-content blockquote.alignleft,
+.entry-content blockquote.alignright {
+	@include fluid-font-size($font-size-small);
+}
+
+address {
+	margin: 0 0 $vertical-rhythm-0;
+}
+
+pre {
+    @include fluid-font-size($font-size-xsmall);
+
+	overflow: auto;
+	max-width: 100%;
+	background: $color-base-bg-alt;
+	font-family: $font-family-code;
+	line-height: $line-height-body;
+	padding: $vertical-rhythm-0;
+	margin-bottom: $vertical-rhythm-0;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: $font-family-code;
+}
+
+p,
+li {
+    code {
+        background: $color-base-bg-alt;
+        color: $color-base-fg;
+        font-size: 0.9em; // Because Hack has higher X-height than FiraGO
+        padding: 0 ($space-0 / 2);
+    }
+}
+
+abbr,
+abbr[title],
+acronym {
+	border-bottom: 1px dotted;
+    text-decoration: none;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: $color-base-bg-alt;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+:focus {
+	outline: none;
+}
+
+hr { // TODO review
+	// background-color: #bbb;
+	// border: 0;
+	// height: 1px;
+	// margin-bottom: $vertical-rhythm-0;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+// Typographic spacing
+// -------------------
+p + h2,
+p + h3,
+ul + h2,
+ul + h3,
+ol + h2,
+ol + h3,
+blockquote + h2,
+blockquote + h3,
+div + h2,
+div + h3,
+small + h2,
+small + h3 {
+    margin-top: $vertical-rhythm-2;
+    margin-bottom: $vertical-rhythm-0;
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4 {
+    margin-top: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin: 0;
+}

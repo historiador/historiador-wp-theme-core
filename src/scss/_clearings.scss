@@ -1,0 +1,38 @@
+.clear,
+.entry-content,
+.entry-footer,
+.comment-content,
+.site-header,
+.site-content,
+.site-footer,
+.nav-links,
+.pagination,
+.comment-author,
+.widget-area,
+.widget,
+.comment-meta {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        table-layout: fixed;
+    }
+}
+
+.clear,
+.entry-content,
+.entry-footer,
+.comment-content,
+.site-header,
+.site-content,
+.site-footer,
+.nav-links,
+.pagination,
+.comment-author,
+.widget-area,
+.widget,
+.comment-meta {
+    &:after {
+        clear: both;
+    }
+}

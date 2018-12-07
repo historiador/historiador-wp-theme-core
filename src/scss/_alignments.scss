@@ -1,0 +1,18 @@
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: $vertical-rhythm-0;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: $vertical-rhythm-0;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

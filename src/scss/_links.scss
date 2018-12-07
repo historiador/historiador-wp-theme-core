@@ -1,0 +1,37 @@
+a {
+	color: $color-base-link;
+	text-decoration: none;
+
+    &:focus {
+        outline: thin dotted;
+    }
+
+    &:hover,
+    &:active {
+        color: $color-base-link-alt;
+        outline: 0;
+		text-decoration: underline;
+    }
+
+	// NOTE site-title is define as a `p` though it is not really
+	// a paragraph.  The intention with underline actual paragraph links
+	// is to improve contrast with the rest of the body text.  For
+	// site-title there is no surrounding text.  Meanwhile, the link it
+	// points to (homepage) is also included in the top navigation menu.
+	p:not(.site-title) & {
+		text-decoration: underline;
+	}
+}
+
+.entry-title a,
+.entry-meta a,
+.entry-footer .cat-links a,
+.entry-footer .tags-links a,
+.site-info a {
+	color: $color-extra-link;
+
+	&:hover,
+	&:active {
+		color: $color-extra-link-alt;
+	}
+}

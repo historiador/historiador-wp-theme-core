@@ -1,0 +1,107 @@
+.historiador-front-page .site-content {
+	padding: 0;
+}
+
+.historiador-panel {
+	overflow: hidden;
+	position: relative;
+}
+
+.panel-image {
+	@include tablet {
+		height: 75vh;
+		max-height: 600px;
+	}
+
+	@include desktop {
+		max-height: 700px;
+	}
+
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+	position: relative;
+	height: 60vh;
+	max-height: 500px;
+}
+
+.background-fixed .panel-image { // Parallax effect
+	@include tablet {
+		background-attachment: fixed;
+	}
+}
+
+
+.historiador-front-page article:not(.has-post-thumbnail):not(:first-child) {
+	border-top: 1px solid #ddd;
+}
+
+.page-one-column .panel-content .wrap {
+	max-width: $viewport-measure-small;
+}
+
+.panel-content {
+	position: relative;
+}
+
+.panel-content .entry-header {
+	margin-bottom: $vertical-rhythm-2;
+}
+
+.panel-content .recent-posts .entry-header {
+	margin-bottom: 0;
+}
+
+.panel-content .wrap {
+	@include tablet {
+		padding-top: $vertical-rhythm-3;
+		padding-bottom: $vertical-rhythm-2;
+	}
+
+	@include desktop {
+		padding-top: $vertical-rhythm-4;
+		padding-bottom: $vertical-rhythm-3;
+	}
+
+	padding-top: $vertical-rhythm-2;
+	padding-bottom: $vertical-rhythm-1;
+}
+
+/* Panel edit link */
+
+.historiador-panel .edit-link {
+	display: block;
+	margin: $space-0 0 0;
+}
+
+.historiador-panel .entry-header .edit-link {
+	@include fluid-font-size($font-size-small);
+}
+
+/* Front Page - Recent Posts */
+// TODO review all the following
+.historiador-front-page .panel-content .recent-posts article {
+	border: 0;
+	color: $color-base-fg;
+	margin-bottom: $vertical-rhythm-2;
+}
+
+.recent-posts .entry-header {
+	margin-bottom: $vertical-rhythm-1;
+}
+
+.page .panel-content .recent-posts .entry-title {
+    @include fluid-font-size($font-size-xlarge);
+
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.historiador-panel .recent-posts .entry-header .edit-link {
+    @include fluid-font-size ($font-size-small);
+
+	color: $color-base-fg-alt;
+	display: inline-block;
+	margin-left: $space-1;
+}

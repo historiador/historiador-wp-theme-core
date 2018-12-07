@@ -1,0 +1,341 @@
+// vi:foldmethod=marker
+
+// Tasks for clean up and optimisation of style sheets {{{
+// -------------------------------------------------------
+// This list has been reviewed on 2018-11-20, marking the relaunch of
+// the development cycle.
+//
+// None of these is blocking the implementation of the theme on a
+// production environment.  They are, nonetheless, important for
+// streamlining development and making sure everything conforms to a
+// defined set of standards.
+//
+// Recall that we use the "TODO" tag to easily find pending tasks in the
+// various files that make up this theme.  For example, executing grep
+// -R 'TODO' inside a directory will give you a list with them.
+//
+//
+// Tasks regarding the various colours used in the stylesheets:
+//
+//     TODO document colours used for foregrounds, backgrounds, borders
+//     fg: #000, #222, #333, #666, #767676, #21759b (accessibility)
+//     bg: #fff, #fafafa, #f1f1f1, #eee, #ddd
+//     border: #333, #666, #bbb, #0085ba (customizer), rgba(255, 255, 255, 0.6) (header)
+//
+// Tasks regarding scaling and measures:
+//     TODO document white space NOTE it is a mess
+//     TODO document font sizes
+//     TODO document other patterns
+// }}}
+
+// _variables.scss
+// ===============
+
+// Colours
+// =======
+
+// Palette
+// -------
+// Notes on the colours used and their interplay {{{
+// Naming convention follows Linux terminal colours for the first 16
+// escape codes:
+//
+// 0-7 are: black, red, green, yellow, blue, magenta, cyan. white
+// 8-15 are their corresponding bright variants
+//
+// "Base values" are black and white variants.  Colour 15 is the default
+// background, while 7 is its alternative.  Colour 0 is the default
+// foeground value, while 8 is its alternative.
+//
+// "Accent values" are all of the remaining 12 colours.
+//
+// All base values are WCAG AAA compliant (>= 7:1) against each other.
+//
+// All accent values are WCAG AAA compliant against col15 (8.25:1)
+// All bright accents are WCAG AAA compliant for large sizes against col15 (5.50:1)
+//
+// All accent values are WCAG AAA compliant against col7 (7:1)
+// All bright accents are WCAG AAA compliant for large sizes against col7 (4.70:1)
+//
+// Link colours for body text must have minimum contrast 3:1 against fgs
+// All bright accents qualify.  This means that links inside paragraphs
+// or text-heavy sections, must use a bright accent.  To ensure maximum
+// accessibility, they must also be underlined.  Whereas links that have
+// little to no surrounding text can use a non-bright accent value.
+//
+// In terms of colour blindness, the best value for paragraph links is
+// col12 and for other links col4.
+//
+// The rest of the palette can be used to denote actions, highlight
+// elements, etc.  Bear in mind that large blocks can easily use bright
+// accents because these comply with the WCAG AAA standard for point
+// sizes => 18 (24px).
+//
+// Further reading: https://webaim.org
+// }}}
+$color-palette-0: #1a1a1a; // black variant
+$color-palette-1: #a20000; // red variant
+$color-palette-2: #065c08; // green variant
+$color-palette-3: #6c4700; // yellow variant
+$color-palette-4: #0044bb; // blue variant
+$color-palette-5: #960c67; // magenta variant
+$color-palette-6: #005479; // cyan variant
+$color-palette-7: #ecedf0; // white variant
+$color-palette-8: #3c476b; // bright black variant
+$color-palette-9: #cc2222; // bright red variant
+$color-palette-10: #3d7628; // bright green variant
+$color-palette-11: #995a00; // bright yellow variant
+$color-palette-12: #2d63d0; // bright blue variant
+$color-palette-13: #b03890; // bright magenta variant
+$color-palette-14: #007196; // bright cyan variant
+$color-palette-15: #ffffff; // bright white variant
+
+// Base colours
+// ------------
+$color-base-bg: $color-palette-15;
+$color-base-bg-alt: $color-palette-7;
+$color-base-fg: $color-palette-0;
+$color-base-fg-alt: $color-palette-8;
+$color-base-link: $color-palette-12;
+$color-base-link-alt: $color-palette-13;
+
+// Links used in places with little to no surround text (see the need
+// for a 3:1 contrast between links and the base foreground.
+$color-extra-link: $color-palette-4;
+$color-extra-link-alt: $color-palette-5;
+
+// TODO get colours from LIVRE?
+// TODO consult Rui on his preferences
+// TODO ask the team what would be best for the campaign
+//
+// // Brand colours
+// // -------------
+// $color-brand-bg: #;
+// $color-brand-fg: #;
+// $color-brand-link: #;
+// $color-brand-link-alt: #;
+
+// Fonts
+// =====
+
+// Font stacks
+// -----------
+// Notes on the font stacks {{{
+// See `webfonts.css` for custom web fonts.  See `gulpfile.js` gulp task
+// `webfonts` for building said style sheet.  The font files are locates
+// under assets/fonts.
+//
+// Use this website to get fonts from the google fonts repos:
+// https://google-webfonts-helper.herokuapp.com/
+//
+// The webfonts used are Roboto (300, 400, 400i, 700, 700i).  Note
+// though that only the latin subset is provided.
+// TODO research need for more subsets, e.g. latin extended, greek…
+//
+// The reason for selecting Roboto is purely practical: to the untrained
+// eye it looks just like "the standard" sans-serif font.  But more
+// importantly, any character that is not provided by the web fonts we
+// load will not look out of place (say, if the system loads a greek
+// letter from Helvetica).
+//
+// TODO do we use emoji?  We might need to include a reference in the
+// stack.
+// }}}
+$font-stack-serif: 'Times New Roman', Times, 'Liberation Serif', serif;
+$font-stack-sans: 'FiraGO', 'Fira Sans', Roboto, Helvetica, Arial, sans-serif;
+$font-stack-mono: 'Hack alt', 'Hack', Monaco, Consolas, 'Ubuntu Mono', monospace;
+
+$font-family-body: $font-stack-sans;
+$font-family-heading: $font-stack-sans;
+$font-family-title: $font-stack-sans;
+$font-family-code: $font-stack-mono;
+
+// Font scale
+// ----------
+// Notes on the font scale {{{
+// We use a font scale to achieve a vertical rhythm.  The text is our
+// measure for the entire site layout.  Personally, I have found that
+// simple designs only need a html { font-size: 100% } with no
+// viewport-aware font scaling (no media queries).  If 1rem = 100%, then
+// the scales are defined in rem and everything zooms in/out smoothly.
+// This respects the user's choice to set a default font size in their
+// browser settings.
+//
+// That granted, the de facto standard is 1rem = 16px.  We try to make
+// scaling media-aware only when necessary.
+//
+// These are the operations that derive the scale:
+//     n * x
+//     n / x
+// where `n` is the {in,de}cremented base value and `x` the ratio.
+//
+// Some common ratios, followed by their conventional name:
+//     1.067     minor second
+//     1.125     major second
+//     1.2       minor third
+//     1.25      major third
+// See http://www.modularscale.com
+//
+// Here we are using major second.  It has proportions that do not
+// create major discrepencies at scale.
+// }}}
+
+// Font sizes
+// ----------
+$font-size-medium: 1rem;
+$font-size-small: 0.889rem;
+$font-size-xsmall: 0.79rem;
+$font-size-xxsmall: 0.703rem;
+$font-size-large: 1.125rem;
+$font-size-xlarge: 1.266rem;
+$font-size-xxlarge: 1.424rem;
+$font-size-xxxlarge: 1.602rem;
+
+// Spacing and measures
+// ====================
+
+// Typographic spacing
+// -------------------
+$font-size-base: 16px;
+$line-height-body: 1.424;
+$line-height-heading: 1.125;
+
+// White space
+// -----------
+$space-0: 0.5rem;
+$space-1: 1rem;
+$space-2: 2rem;
+$space-3: 3rem;
+
+// TODO is this a good way to derive the scale?
+// We can just hard code it.
+$vertical-rhythm-0: #{$line-height-body / 2}rem;
+$vertical-rhythm-1: #{$line-height-body}rem;
+$vertical-rhythm-2: #{$line-height-body * 1.5}rem;
+$vertical-rhythm-3: #{$line-height-body * 2.5}rem;
+$vertical-rhythm-4: #{$line-height-body * 3.5}rem;
+
+// Page measure
+// ------------
+$viewport-measure-small: 700px;
+$viewport-measure-medium: 850px;
+$viewport-measure-large: 1000px;
+
+// Viewports
+// ---------
+// TODO review based on styles from Historiador
+$viewport-size-tablet: 48em;
+$viewport-size-desktop: 75em;
+
+// Dividers
+// ========
+$border-width-thin: 1px;
+$border-width-medium: 3px;
+$border-width-thick: 5px;
+// NOTE Minimum contrast of WCAG AAA against col15
+$border-color-dark-0: #111;
+$border-color-dark-1: #333;
+$border-color-dark-2: #555;
+$border-color-light-0: #eee;
+$border-color-light-1: #cecece;
+$border-color-light-2: #bababa;
+// $border-color-highlight: $notifyinfo;
+// $border-color-highlight-alt: $notifycrit;
+
+// Mixins
+// ------
+
+@mixin font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin border-radius($degree) {
+    border-radius: $degree;
+}
+
+@mixin tablet {
+    @media screen and (min-width: #{$viewport-size-tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: #{$viewport-size-desktop}) {
+        @content;
+    }
+}
+
+@mixin tablet-font-size($tablet-font-size) {
+    font-size: $tablet-font-size + 0.02;
+}
+
+@mixin desktop-font-size($desktop-font-size) {
+    font-size: $desktop-font-size + 0.04;
+}
+
+// NOTE Combines the above two and is the preferred option
+@mixin fluid-font-size($fluid-font-size) {
+    @include tablet {
+        @include tablet-font-size($fluid-font-size);
+    }
+
+    @include desktop {
+        @include desktop-font-size($fluid-font-size);
+    }
+    
+    font-size: $fluid-font-size;
+}
+
+// For icon fonts.  Should use same value as the text next to it.
+@mixin tablet-icon-size($tablet-icon-size) {
+    width: $tablet-icon-size + 0.02;
+    height: $tablet-icon-size + 0.02;
+}
+
+@mixin desktop-icon-size($desktop-icon-size) {
+    width: $desktop-icon-size + 0.04;
+    height: $desktop-icon-size + 0.04;
+}
+
+// NOTE Combines the above two and is the preferred option
+@mixin fluid-icon-size($fluid-icon-size) {
+    @include tablet {
+        @include tablet-icon-size($fluid-icon-size);
+    }
+
+    @include desktop {
+        @include desktop-icon-size($fluid-icon-size);
+    }
+
+    width: $fluid-icon-size;
+    height: $fluid-icon-size;
+}
+
+@mixin fluid-width-measure {
+    @include tablet {
+        max-width: $measure;
+    }
+
+    @include desktop {
+        max-width: $measure-xl;
+    }
+
+    max-width: 100%;
+}
+
+// Global placeholders
+// -------------------
+// NOTE Placeholders are normally defined within the stylesheet => DRY
+%clearfix {
+    &::before {
+        content: '';
+        display: table;
+    }
+
+    &::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}

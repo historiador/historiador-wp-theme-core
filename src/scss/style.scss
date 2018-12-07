@@ -1,0 +1,44 @@
+/*!
+Theme Name: Historiador
+Theme URI: https://github.com/historiador/historiador-wp-theme
+Author: Protesilaos Stavrou,  André Góis Fernandes
+Author URI: https://github.com/historiador/
+Description: Historiador is a WordPress theme based on the default Twenty Seventeen.
+Version: 1.0
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: historiador
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+// Parse all partial style sheets into a single file
+@import 'variables.scss';
+@import 'normalize.scss';
+@import 'accessibility.scss';
+@import 'alignments.scss';
+@import 'clearings.scss';
+@import 'typography.scss';
+@import 'forms.scss';
+@import 'lists.scss';
+@import 'tables.scss';
+@import 'links.scss';
+@import 'featured-image-hover.scss';
+@import 'navigation.scss';
+@import 'layout.scss';
+@import 'header.scss';
+@import 'front-page.scss';
+@import 'regular-content.scss';
+@import 'posts.scss';
+@import 'pages.scss';
+@import 'footer.scss';
+@import 'comments.scss';
+@import 'widgets.scss';
+@import 'media.scss';
+@import 'galleries.scss';
+@import 'customizer.scss';
+@import 'svg-fallbacks.scss';
+@import 'media-queries.scss';
+@import 'print.scss';

@@ -1,0 +1,305 @@
+#masthead .wrap {
+	position: relative;
+}
+
+.site-header {
+	background-color: $color-base-fg-alt;
+	position: relative;
+}
+
+/* Site branding */
+.site-branding { // TODO needs further testing
+	@include tablet {
+		padding: $space-1 0;
+	}
+
+	padding: $vertical-rhythm-2 0;
+	margin-bottom: 0;
+	position: relative;
+	z-index: 3;
+}
+
+.site-title { // TODO also check effects with site-title a
+    @include fluid-font-size($font-size-xxxlarge);
+
+	clear: none;
+	font-weight: 700;
+	line-height: $line-height-heading;
+	padding: 0;
+	margin: 0;
+    opacity: 1;
+}
+
+body.has-header-image,
+body.has-header-video {
+    .site-title {
+		color: $color-base-bg;
+		text-shadow: 1px 1px $color-base-fg;
+
+        a {
+            color: $color-base-bg;
+        }
+
+    }
+
+    .site-description {
+		color: $color-base-bg-alt;
+		text-shadow: 1px 1px $color-base-fg;
+    }
+}
+
+// TODO brand colours fg alt
+.site-description {
+    @include fluid-font-size($font-size-small);
+
+	color: $color-base-fg-alt;
+	margin-bottom: 0;
+}
+
+.custom-logo-link {
+	@include tablet {
+		padding-right: $space-2;
+	}
+
+	display: inline-block;
+	padding-right: $space-1;
+	vertical-align: middle;
+	width: auto;
+
+    img {
+		@include tablet {
+			max-width: 350px;
+		}
+
+        display: inline-block;
+        max-height: 80px;
+        width: auto;
+    }
+
+    a {
+        &:hover,
+        &:focus {
+            opacity: 0.9; // TODO no opacity. Use alt col. Test first.
+        }
+    }
+}
+
+body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
+body.home.title-tagline-hidden.has-header-video .custom-logo-link img {
+	@include tablet {
+		max-width: 350px;
+	}
+
+	max-height: 200px;
+	max-width: 100%;
+}
+
+body:not(.title-tagline-hidden) .site-branding-text {
+	display: inline-block;
+	vertical-align: middle;
+	background: rgba(0,0,0,.4); // TODO requires further testing.
+	padding: $space-1;
+}
+
+.title-tagline-hidden.home.has-header-image .custom-logo-link img,
+.title-tagline-hidden.home.has-header-video .custom-logo-link img {
+	@include tablet {
+		max-height: 200px;
+	}
+}
+
+.custom-header {
+	position: relative;
+}
+
+.custom-header:not(.historiador-front-page):not(.home) {
+	@include tablet {
+		display: block;
+		height: 300px;
+		height: 30vh;
+	}
+
+	@include desktop {
+		height: 500px;
+		height: 50vh;
+	}
+
+	position: relative;
+}
+
+.custom-header-media {
+	@include tablet {
+		height: 165px;
+		position: relative;
+	}
+
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+.has-header-image.historiador-front-page .custom-header,
+.has-header-video.historiador-front-page .custom-header,
+.has-header-image.home.blog .custom-header,
+.has-header-video.home.blog .custom-header {
+	@include tablet {
+		display: block;
+		height: auto;
+	}
+
+	display: table;
+	height: 300px;
+	height: 75vh;
+	width: 100%;
+}
+
+.historiador-front-page.has-header-image .custom-header-media,
+.historiador-front-page.has-header-video .custom-header-media,
+.home.blog.has-header-image .custom-header-media,
+.home.blog.has-header-video .custom-header-media {
+	@include tablet {
+		height: 0;
+		position: relative;
+	}
+}
+
+.has-header-image:not(.historiador-front-page):not(.home) .custom-header-media,
+.has-header-video:not(.historiador-front-page):not(.home) .custom-header-media {
+	@include tablet {
+		bottom: 0;
+		height: auto;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+.has-header-image .custom-header-media img,
+.has-header-video .custom-header-media video,
+.has-header-video .custom-header-media iframe {
+	position: fixed;
+	height: auto;
+	left: 50%;
+	max-width: 1000%;
+	min-height: 100%;
+	min-width: 100%;
+	min-width: 100vw; /* vw prevents 1px gap on left that 100% has */
+	width: auto;
+	top: 50%;
+	padding-bottom: 1px; /* Prevent header from extending beyond the footer */
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+// TODO test whether we need this now that dark colours have been
+// removed
+.wp-custom-header .wp-custom-header-video-button { /* Specificity prevents .color-dark button overrides */
+	background-color: rgba(34, 34, 34, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255, 0.6);
+	height: 45px;
+	overflow: hidden;
+	padding: 0;
+	position: fixed;
+	right: 30px;
+	top: 30px;
+	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	width: 45px;
+}
+
+// TODO test whether we need this now that dark colours have been
+// removed
+.wp-custom-header .wp-custom-header-video-button:hover,
+.wp-custom-header .wp-custom-header-video-button:focus { /* Specificity prevents .color-dark button overrides */
+	border-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(34, 34, 34, 0.8);
+	color: #fff;
+}
+
+.admin-bar .wp-custom-header-video-button {
+	top: 62px;
+}
+
+.has-header-image:not(.historiador-front-page):not(.home) .custom-header-media img {
+	bottom: 0;
+	position: absolute;
+	top: auto;
+	-ms-transform: translateX(-50%) translateY(0);
+	-moz-transform: translateX(-50%) translateY(0);
+	-webkit-transform: translateX(-50%) translateY(0);
+	transform: translateX(-50%) translateY(0);
+}
+
+/* For browsers that support 'object-fit' */
+@supports ( object-fit: cover ) {
+	.has-header-image .custom-header-media img,
+	.has-header-video .custom-header-media video,
+	.has-header-video .custom-header-media iframe,
+	.has-header-image:not(.historiador-front-page):not(.home) .custom-header-media img {
+		height: 100%;
+		left: 0;
+		-o-object-fit: cover;
+		object-fit: cover;
+		top: 0;
+		-ms-transform: none;
+		-moz-transform: none;
+		-webkit-transform: none;
+		transform: none;
+		width: 100%;
+	}
+}
+
+/* Hides div in Customizer preview when header images or videos change. */
+
+body:not(.has-header-image):not(.has-header-video) .custom-header-media {
+	display: none;
+}
+
+
+
+.has-header-image .site-branding,
+.has-header-video .site-branding {
+	@include tablet {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+
+
+.has-header-image.historiador-front-page .site-branding,
+.has-header-video.historiador-front-page .site-branding,
+.has-header-image.home.blog .site-branding,
+.has-header-video.home.blog .site-branding {
+	@include tablet {
+		bottom: 0;
+		display: block;
+		left: 0;
+		height: auto;
+		padding-top: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	display: table-cell;
+	height: 100%;
+	vertical-align: bottom;
+}
+
+// TODO review this.  Was taken from _media-queries.scss
+@media screen and (min-width: 20em) {
+
+	body.customize-partial-edit-shortcuts-shown .site-header .site-title {
+		padding-left: 0;
+	}
+}

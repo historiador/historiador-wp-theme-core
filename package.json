@@ -1,0 +1,45 @@
+{
+  "name": "historiador",
+  "version": "0.1.0",
+  "description": "WordPress Theme for a modern personal website",
+  "main": "style.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/protesilaos/historiador.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "gulp",
+    "scss",
+    "sass"
+  ],
+  "author": "Protesilaos Stavrou",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://gitlab.com/protesilaos/historiador/issues"
+  },
+  "homepage": "https://gitlab.com/protesilaos/historiador#README",
+  "devDependencies": {
+    "autoprefixer": "^8.6.5",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1",
+    "jshint": "^2.9.6",
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "postcss-scss": "^1.0.6",
+    "stylefmt": "^6.0.3",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}

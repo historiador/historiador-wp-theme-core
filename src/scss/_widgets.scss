@@ -1,0 +1,289 @@
+#secondary {
+	@include fluid-font-size($font-size-small);
+
+	padding: $space-1 0 $space-2;
+}
+
+.widget {
+	padding-bottom: $vertical-rhythm-2;
+}
+
+h2.widget-title { // TODO why is it okay to (i) use h2, (ii) redefine the heading?
+	@include fluid-font-size($font-size-medium);
+
+	margin-bottom: $vertical-rhythm-1;
+}
+
+/* widget forms */
+
+.widget select {
+	width: 100%;
+}
+
+
+/* widget lists */
+
+.widget ul {
+	list-style: none;
+	margin: 0;
+}
+
+.widget ul li,
+.widget ol li {
+	border-bottom: 1px solid $border-color-light-1;
+	border-top: 1px solid $border-color-light-1;
+	padding: $space-0 0;
+}
+
+.widget:not(.widget_tag_cloud) ul li + li {
+	margin-top: -1px;
+}
+
+.widget ul li ul {
+	margin: 0 0 -1px;
+	padding: 0;
+	position: relative;
+}
+
+.widget ul li li {
+	border: 0;
+	padding-left: $vertical-rhythm-1;
+}
+
+/* Widget lists of links */
+
+.widget_top-posts ul li ul,
+.widget_rss_links ul li ul,
+.widget-grofile ul.grofile-links li ul,
+.widget_pages ul li ul,
+.widget_meta ul li ul {
+	bottom: 0;
+}
+
+.widget_nav_menu ul li li,
+.widget_top-posts ul li,
+.widget_top-posts ul li li,
+.widget_rss_links ul li,
+.widget_rss_links ul li li,
+.widget-grofile ul.grofile-links li,
+.widget-grofile ul.grofile-links li li {
+	padding-bottom: $space-0 / 2; // TODO review ad hoc measurement
+	padding-top: $space-0 / 2; // TODO why not padding: $space-0 0; ???
+}
+
+.widget_rss ul li {
+	padding-bottom: $space-1; // TODO why not padding: $space-1 0; ???
+	padding-top: $space-1;
+}
+
+/* Widget markup */
+
+.widget .post-date,
+.widget .rss-date {
+    @include fluid-font-size($font-size-xsmall);
+}
+
+/* Text widget */
+
+.widget_text {
+	word-wrap: break-word;
+}
+
+.widget_text ul {
+	list-style: disc;
+	margin: 0 0 $vertical-rhythm-1 $vertical-rhythm-1
+}
+
+.widget_text ol {
+	list-style: decimal;
+}
+
+.widget_text ul li,
+.widget_text ol li {
+	border: none;
+}
+
+.widget_text ul li:last-child,
+.widget_text ol li:last-child {
+	padding-bottom: 0;
+}
+
+.widget_text ul li ul {
+	margin: 0 0 0 $vertical-rhythm-1;
+}
+
+.widget_text ul li li {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.widget_text ol li {
+	list-style-position: inside;
+}
+
+.widget_text ol li + li {
+	margin-top: -1px;
+}
+
+// TODO are we going to use this?
+/* RSS Widget */
+
+.widget_rss .widget-title .rsswidget:first-child {
+	float: right;
+}
+
+.widget_rss .widget-title .rsswidget:first-child:hover {
+	background-color: transparent;
+}
+
+.widget_rss .widget-title .rsswidget:first-child img {
+	display: block;
+}
+
+.widget_rss ul li {
+	padding: $vertical-rhythm-1 0;
+}
+
+.widget_rss ul li:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.widget_rss li .rsswidget {
+    @include fluid-font-size($font-size-xlarge);
+
+	line-height: $line-height-heading;
+}
+
+.widget_rss .rss-date,
+.widget_rss li cite { // TODO are we using any of this?  Review.
+    @include fluid-font-size($font-size-xsmall);
+
+	color: $color-base-fg-alt;
+	display: block;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.widget_rss .rss-date {
+	margin: $space-0 0 $vertical-rhythm-1;
+	padding: 0;
+}
+
+.widget_rss .rssSummary {
+	margin-bottom: $space-0;
+}
+
+// TODO are we using this?
+/* Contact Info Widget */
+
+.widget_contact_info .contact-map {
+	margin-bottom: $space-0;
+}
+
+// TODO are we using this?
+/* Gravatar */
+
+.widget-grofile h4 {
+    @include fluid-font-size($font-size-medium);
+
+	margin-bottom: 0;
+}
+
+/* Recent Comments */
+
+.widget_recent_comments table,
+.widget_recent_comments th,
+.widget_recent_comments td {
+	border: 0;
+}
+
+/* Recent Posts widget */
+
+.widget_recent_entries .post-date {
+	display: block;
+}
+
+/* Search */
+
+.search-form {
+	position: relative;
+}
+
+.search-form .search-submit {
+	bottom: 3px;
+	padding: $space-0 $space-1;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+}
+
+.search-form .search-submit .icon { // TODO review these very specific sizes
+	height: 24px;
+	top: -2px;
+	width: 24px;
+}
+
+// TODO do people still use tag clouds?
+/* Tag cloud widget */
+
+.tagcloud ul li {
+	float: left;
+	border-top: 0;
+	border-bottom: 0;
+	padding: 0;
+	margin: 4px 4px 0 0;
+}
+
+.tagcloud,
+.widget_tag_cloud,
+.wp_widget_tag_cloud {
+	line-height: $line-height-body;
+}
+
+.widget .tagcloud a,
+.widget.widget_tag_cloud a,
+.wp_widget_tag_cloud a {
+	border: 1px solid $border-color-light-1;
+	box-shadow: none;
+	display: block;
+	padding: $space-0 $space-1;
+	position: relative;
+	width: auto;
+	word-wrap: break-word;
+	z-index: 0;
+}
+
+.widget .tagcloud a:hover,
+.widget .tagcloud a:focus,
+.widget.widget_tag_cloud a:hover,
+.widget.widget_tag_cloud a:focus,
+.wp_widget_tag_cloud a:hover,
+.wp_widget_tag_cloud a:focus {
+	border-color: $border-color-light-2;
+	text-decoration: none;
+}
+
+// TODO any use for this?
+/* Calendar widget */
+
+.widget_calendar th,
+.widget_calendar td {
+	text-align: center;
+}
+
+.widget_calendar tfoot td {
+	border: 0;
+}
+
+// TODO are we using this?
+/* Gallery widget */
+
+.gallery-columns-5 .gallery-caption,
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+	display: none;
+}

@@ -1,0 +1,357 @@
+/* Post Landing Page */
+
+.sticky {
+	position: relative;
+}
+
+.post:not(.sticky) .icon-thumb-tack {
+	display: none;
+}
+
+.sticky .icon-thumb-tack { // TODO review this
+	display: block;
+	height: 18px;
+	left: -1.5em;
+	position: absolute;
+	top: 1.65em;
+	width: 20px;
+}
+
+.page-title,
+body.page:not(.historiador-front-page) .entry-title {
+    @include fluid-font-size($font-size-xxxlarge);
+
+	color: $color-base-fg;
+	font-weight: 400;
+}
+
+.page .panel-content .entry-title {
+	@include fluid-font-size($font-size-large);
+
+	color: $color-base-fg;
+	font-weight: 400;
+}
+
+.entry-header .entry-title {
+	margin-bottom: $vertical-rhythm-1;
+}
+
+.entry-title:not(:first-child) {
+	padding-top: 0;
+}
+
+.entry-meta {
+    @include fluid-font-size($font-size-xsmall);
+
+	color: $color-base-fg-alt;
+	font-weight: 400;
+}
+
+.byline,
+.updated:not(.published) { // TODO will there be many authors?  Else remove bylines.
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline { // TODO review need for bylines.
+	display: inline;
+}
+
+.pagination,
+.comments-pagination {
+    @include fluid-font-size($font-size-small);
+
+	border-top: 1px dashed $border-color-dark-2;
+	padding: $space-2 0;
+	text-align: center;
+}
+
+.pagination .icon,
+.comments-pagination .icon { // TODO why this specific size?
+	width: 0.666666666em;
+	height: 0.666666666em;
+}
+
+.comments-pagination {
+	border: 0;
+}
+
+.page-numbers {
+	@include fluid-font-size($font-size-medium);
+
+	@include tablet {
+		display: inline-block;
+	}
+
+	display: none;
+	background: $color-base-bg-alt;
+	padding: $space-0 $space-1;
+
+	&.dots {
+		background: none;
+	}
+}
+
+.page-numbers.current {
+	display: inline-block;
+	font-weight: 700;
+}
+
+.page-numbers.current .screen-reader-text {
+	@include tablet {
+		clip: rect(1px, 1px, 1px, 1px);
+		height: 1px;
+		overflow: hidden;
+		position: absolute !important;
+		width: 1px;
+	}
+
+	clip: auto;
+	height: auto;
+	overflow: auto;
+	position: relative !important;
+	width: auto;
+}
+
+.prev.page-numbers,
+.next.page-numbers {
+	background-color: $color-base-bg-alt;
+	display: inline-block;
+}
+
+.prev.page-numbers {
+	float: left;
+}
+
+.next.page-numbers {
+	float: right;
+}
+
+/* Aligned blockquotes */
+
+.entry-content blockquote.alignleft,
+.entry-content blockquote.alignright { // TODO will we be using those?
+    @include fluid-font-size($font-size-small);
+
+	color: $color-base-fg-alt;
+	width: 48%;
+}
+
+/* Blog landing, search, archives */
+
+.blog .site-main > article,
+.archive .site-main > article,
+.search .site-main > article {
+	padding-bottom: $vertical-rhythm-1;
+}
+
+body:not(.historiador-front-page) .entry-header {
+	padding: $space-1 0;
+}
+
+body:not(.historiador-front-page) .entry-header,
+body:not(.historiador-front-page) .entry-content,
+body:not(.historiador-front-page) #comments {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body:not(.historiador-front-page) .entry-header {
+	padding-top: 0;
+}
+
+.blog .entry-meta a.post-edit-link,
+.archive .entry-meta a.post-edit-link,
+.search .entry-meta a.post-edit-link {
+	color: $color-base-fg;
+	display: inline-block;
+	margin-left: $space-1;
+	white-space: nowrap;
+}
+
+.search .page .entry-meta a.post-edit-link {
+	margin-left: 0;
+	white-space: nowrap;
+}
+
+.taxonomy-description {
+    @include fluid-font-size($font-size-medium);
+
+	color: $color-base-fg-alt;
+}
+
+/* More tag */
+
+.entry-content .more-link:before {
+	content: "";
+	display: block;
+	margin-top: $vertical-rhythm-1;
+}
+
+/* Single Post */
+
+.single-post:not(.has-sidebar) #primary,
+.page.page-one-column:not(.historiador-front-page) #primary,
+.archive.page-one-column:not(.has-sidebar) .page-header,
+.archive.page-one-column:not(.has-sidebar) #primary {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $viewport-measure-small;
+}
+
+.single-featured-image-header {
+	background-color: $color-base-bg-alt;
+	border-bottom: 1px solid $border-color-light-0;
+}
+
+.single-featured-image-header img {
+	display: block;
+	margin: auto;
+}
+
+.page-links {
+    @include fluid-font-size($font-size-small);
+
+	font-weight: 700;
+	padding: $space-2 0;
+}
+
+.page-links .page-number {
+	color: $color-base-fg-alt; // TODO review in accordance with the rest of pagination styles
+	display: inline-block;
+	padding: $space-0 $space-1;
+}
+
+.page-links a {
+	display: inline-block;
+}
+
+.page-links a .page-number {
+	color: $color-base-fg; // TODO review in accordance with the rest of pagination styles
+}
+
+/* Entry footer */
+
+.entry-footer {
+	border-bottom: 1px solid $border-color-dark-2;
+	border-top: 1px solid $border-color-dark-2;
+	margin-top: $space-2;
+	padding: $space-2 0;
+}
+
+.entry-footer .cat-links,
+.entry-footer .tags-links {
+    @include fluid-font-size($font-size-xsmall);
+
+	display: block;
+	font-weight: 700;
+	padding-left: $space-3;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.entry-footer .cat-links + .tags-links {
+	margin-top: $space-1;
+}
+
+.entry-footer .cat-links .icon,
+.entry-footer .tags-links .icon {
+	color: $color-base-fg-alt;
+	left: 0;
+	margin-right: $space-0;
+	position: absolute;
+	top: 2px;
+}
+
+.entry-footer .edit-link {
+	display: inline-block;
+}
+
+.entry-footer .edit-link a.post-edit-link {
+    @include fluid-font-size($font-size-small);
+
+	background-color: $color-base-bg;
+	border-radius: 2px;
+	box-shadow: none;
+	color: $color-base-fg;
+	display: inline-block;
+	font-weight: 700;
+	margin-top: $vertical-rhythm-1;
+	padding: $space-1 $space-2;
+	white-space: nowrap;
+}
+
+.entry-footer .edit-link a.post-edit-link {
+    &:hover,
+    &:focus {
+        background-color: $color-base-bg-alt;
+    }
+}
+
+// TODO any chance we will be using those?  Remove them from here.
+
+/* Post Formats */
+
+.blog .format-status .entry-title,
+.archive .format-status .entry-title,
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+.format-quote blockquote {
+    @include fluid-font-size($font-size-large);
+
+	color: $color-base-fg;
+	overflow: visible;
+	position: relative;
+}
+
+.format-quote blockquote .icon {
+	display: block;
+	height: 20px;
+	left: -1.25em;
+	position: absolute;
+	top: 0.4em;
+	-webkit-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+	width: 20px;
+}
+
+/* Post Navigation */
+
+.post-navigation {
+	font-weight: 700;
+	margin: $vertical-rhythm-2 0;
+}
+
+.post-navigation .nav-links {
+	padding: $space-1 0;
+}
+
+.nav-subtitle {
+    @include fluid-font-size($font-size-xsmall);
+
+	background: transparent;
+	display: block;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+
+.nav-title {
+    @include fluid-font-size($font-size-medium);
+}
+
+.post-navigation .nav-next {
+	margin-top: $vertical-rhythm-1;
+}
+
+// TODO why these overly specific selectors?  Improve!
+.nav-links .nav-previous .nav-title .nav-title-icon-wrapper {
+	margin-right: $space-0;
+}
+
+.nav-links .nav-next .nav-title .nav-title-icon-wrapper {
+	margin-left: $space-0;
+}

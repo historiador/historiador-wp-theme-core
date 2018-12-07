@@ -1,0 +1,127 @@
+// TODO we should use "brand colours" for the footer
+.site-footer {
+	@include fluid-font-size($font-size-small);
+
+	@include tablet {
+		margin-top: $vertical-rhythm-2;
+
+		.widget-column.footer-widget-1 {
+			float: left;
+			width: 36%;
+		}
+
+		.widget-column.footer-widget-2 {
+			float: right;
+			width: 58%;
+		}
+
+	}
+
+	@include desktop {
+		margin-top: $vertical-rhythm-3;
+	}
+
+
+	border-top: 1px solid $border-color-dark-2;
+	margin-top: $vertical-rhythm-1;
+
+    .wrap {
+        padding-bottom: $vertical-rhythm-0;
+        padding-top: $vertical-rhythm-0;
+    }
+
+    .widget-area {
+        padding-bottom: $vertical-rhythm-0;
+        padding-top: $vertical-rhythm-0;
+    }
+}
+
+.social-navigation {
+    @include fluid-font-size($font-size-medium);
+
+	@include tablet {
+		clear: left;
+		float: left;
+		margin-bottom: 0;
+		width: 36%;
+	}
+
+	margin-bottom: $vertical-rhythm-0;
+
+    ul {
+        list-style: none;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+		@include border-radius(50%);
+
+		background-color: $color-base-fg-alt;
+		color: $color-base-bg;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		margin: 0 1em 0.5em 0;
+		text-align: center;
+
+		&:hover,
+		&:focus {
+			background-color: $color-base-link-alt;
+		}
+
+//// NOTE in case we need some more colour
+////		&[href*="twitter.com"] { // specific to twitter links
+////			background-color: #1da1f2;
+////
+////			&:hover,
+////			&:focus {
+////				background-color: #3d7df2;
+////			}
+////		}
+////
+////		&[href*="facebook.com"] { // specific to facebook links
+////			background-color: #3b5998;
+////
+////			&:hover,
+////			&:focus {
+////				background-color: #2b49c8;
+////			}
+////		}
+////
+////		&[href*="instagram.com"] { // specific to instagram links
+////			background-color: #8a3ab9;
+////
+////			&:hover,
+////			&:focus {
+////				background-color: #ca3a89;
+////			}
+////		}
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        vertical-align: top;
+    }
+
+	+ .site-info {
+		margin-left: 6%;
+	}
+}
+
+.site-info {
+	@include tablet {
+		float: left;
+		padding: $space-0 0 0;
+		width: 58%;
+	}
+
+	font-size: $font-size-small;
+	margin-bottom: 1em;
+}
